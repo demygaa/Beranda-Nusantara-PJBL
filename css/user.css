@@ -1,0 +1,67 @@
+.user-menu img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+.user-menu {
+    position: relative;
+}
+
+.profile-dropdown {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background: white;
+    min-width: 150px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    display: none;
+}
+
+.profile-dropdown.show-profile {
+    display: block;
+}
+
+.profile-dropdown a {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    text-decoration: none;
+    color: black;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.profile-dropdown a.logout {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    text-decoration: none;
+    color: rgb(211, 22, 22);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.profile-dropdown a:hover {
+    background: #f1f1f1;
+}
+
+.profile-dropdown img {
+    width: 15px;
+
+    height: 15;
+    margin-right: 8px;
+    
+    object-fit: cover;
+}
+
+.profile-dropdown .logout img {
+    width: 15px;
+    height: auto;
+    margin-right: 8px;
+    filter: brightness(0) saturate(100%) invert(15%) sepia(100%) saturate(7000%) hue-rotate(0deg) brightness(100%) contrast(110%);
+}
+

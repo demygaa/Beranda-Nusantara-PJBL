@@ -1,0 +1,147 @@
+ @media screen and (max-width: 600px) {
+     header {
+         padding: 20px 25px;
+         background: rgba(81, 82, 190, 1);
+     }
+     .h1 {
+        font-size: 8px;
+     }
+
+     nav {
+         display: none;
+         flex-direction: column;
+         background: #31326F;
+         width: 50%;
+         padding: 25px 0;
+         position: absolute;
+         top: 80px;
+         right: 0;
+         border-radius: 10px;
+     }
+
+     nav a {
+         margin: 10px 0;
+         padding: 5px 0;
+         text-align: center;
+         font-size: 18px;
+     }
+
+     .hamburger {
+        display: flex;
+     }
+     .search-nav {
+        display: none;
+     }
+     .user-menu {
+        display: none;
+     }
+     nav.show {
+         display: flex;
+         flex-direction: column;
+         text-align: center;
+         background: rgba(81, 82, 190, 1);
+         border-top: 1px solid;
+     }
+
+     .nav-dropdown {
+         width: 100%;
+         padding: 10px 0;
+         background: rgba(81, 82, 190, 1);
+
+     }
+
+     .dropdown-menu {
+         background: rgb(98, 104, 183);
+         display: none;
+         width: 100%;
+         padding-bottom: 5px;
+     }
+
+     .dropdown-menu a {
+         display: block;
+         padding: 5px 0;
+         text-align: center;
+         font-size: 15px;
+     }
+
+     .nav-dropdown.open .dropdown-menu {
+         display: block;
+     }
+
+     .h1 {
+         font-size: 32px;
+     }
+
+     .hero {
+         height: 95%;
+     }
+
+     .hero p {
+         font-size: 13px;
+     }
+
+     .sectionkotak {
+         display: none;
+         margin: 0 auto;
+     }
+
+     .section-peta {
+         margin-top: 60px;
+     }
+
+     .content {
+         flex-direction: column;
+         gap: 25px;
+         margin-left: 0px;
+         display: block;
+     }
+
+     .search-box input,
+     .caripeta input {
+         width: 90%;
+     }
+
+     .petabudaya {
+         margin: 32px 9px 32px 9px;
+         display: none;
+     }
+
+     .map-container {
+         display: none;
+     }
+
+     .caripeta input {
+         margin-left: 0px;
+         width: 80%;
+         display: none;
+     }
+
+     .card-container {
+         display: none;
+     }
+
+     .kunjungan {
+         display: none;
+         background-color: #DFDFFF;
+         border-radius: 16px;
+         padding: 20px 5px;
+         margin: 70px auto;
+         margin-left: 32px;
+         margin-right: 32px;
+         margin-bottom: 30px;
+     }
+
+     .kunjungan h2 {
+         display: none;
+         font-size: 15px;
+     }
+
+     .kunjunganhp {
+         display: block;
+     }
+
+     .search-icon {
+         display: none;
+     }
+
+ }
