@@ -39,13 +39,13 @@ $data = $result->fetch_assoc();
         </span>
 
 
-        <!-- TITLE -->
+
         <h1 class="detail-title">
             Kebudayaan <?php echo $data['kategori'] ?> <?php echo $data['judul'] ?>
         </h1>
-        <!-- INFO -->
+
         <div class="detail-info">
-            <span><?php echo $data['username']?></span>
+            <span><?php echo $data['username'] ?></span>
             <span>•</span>
             <span><?php echo $data['date'] ?></span>
 
@@ -108,7 +108,7 @@ $data = $result->fetch_assoc();
             expedita laboriosam maxime recusandae reiciendis.
         </p>
         <GAMBAR TENGAH -->
-         <!-- <class="middle-image">
+        <!-- <class="middle-image">
 
                 <img src="https://picsum.photos/1200/600">
 
@@ -154,34 +154,63 @@ $data = $result->fetch_assoc();
     <div class="recommend-wrapper">
         <?php while ($data = $result->fetch_assoc()) { ?>
             <div class="recommend-card">
-                
-                    <img src="../asset/konten/<?php echo $data['gambar'] ?>">
-                    <div class="recommend-body">
-                        <div>
-                            <span>
-                                + <?php echo $data['kategori'] ?>
-                            </span>
 
-                            <h3>
-                                <?php echo $data['judul'] ?>
-                            </h3>
-                            <p>
-                                <?= substr($data['isi'], 0, 30) . "..." ?>
-                            </p>
-                        </div>
-                        <div>
-                            <a href="index.php?page=detail&id=<?php echo $data['id'] ?>" class="detail-link">
-                                <button class="detail">Detail</button>
-                            </a>
-                            
-                        </div>
+                <img src="../asset/konten/<?php echo $data['gambar'] ?>">
+                <div class="recommend-body">
+                    <div>
+                        <span>
+                            + <?php echo $data['kategori'] ?>
+                        </span>
 
-
+                        <h3>
+                            <?php echo $data['judul'] ?>
+                        </h3>
+                        <p>
+                            <?= substr($data['isi'], 0, 30) . "..." ?>
+                        </p>
+                    </div>
+                    <div>
+                        <a href="index.php?page=detail&id=<?php echo $data['id'] ?>" class="detail-link">
+                            <button class="detail">Detail</button>
+                        </a>
 
                     </div>
-                
+
+
+
+                </div>
+
 
             </div>
         <?php } ?>
     </div>
+</section>
+
+<section class="rekomendasi-mobile">
+    <?php
+
+    $stmt = $conn->prepare("SELECT * FROM tb_konten WHERE id != ? ORDER BY views DESC LIMIT 4");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+
+    ?>
+
+    <h2>Rekomendasi Artikel</h2>
+    <div class="rekomendasi-wrap">
+        <?php while ($data = $result->fetch_assoc()) { ?>
+        <div>
+            <img src="../asset/konten/<?php echo $data['gambar']?>">
+            <div>
+                <a href="index.php?page=detail&id=<?php echo $data['id'] ?>">
+                    <h3><?php echo $data['judul']?></h3>
+                    <h4><?= substr($data['isi'], 0, 30) . "..." ?></h4>
+                </a>
+            </div>
+
+        </div>
+        <?php } ?>
+    </div>
+
 </section>

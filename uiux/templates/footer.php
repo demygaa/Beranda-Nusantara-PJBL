@@ -5,7 +5,7 @@
         <div class="footer-top">
 
             <!-- Kolom Logo -->
-            <div class="footer-col">
+            <div class="footer-col" id="top">
                 <div class="footer-logo">
                     <img src="../asset/icon/logo.png" alt="Logo Beranda Nusantara">
                     <h2>BERANDA NUSANTARA</h2>
@@ -17,7 +17,7 @@
             </div>
 
             <!-- Kolom Navigasi -->
-            <div class="footer-col">
+            <div class="footer-col" id="navfo">
                 <h3>Navigasi</h3>
                 <a href="index.php?page=homepage">Beranda</a>
                 <a href="index.php?page=homepage#peta">Peta Budaya</a>
@@ -27,7 +27,7 @@
             </div>
 
             <!-- Kolom Kebudayaan -->
-            <div class="footer-col">
+            <div class="footer-col" id="navbu">
                 <h3>Kebudayaan</h3>
                 <div class="navigasi-budaya">
                     <div>
@@ -54,7 +54,7 @@
                     <a href=""><img src="../asset/icon/twitter.png" alt="">BerandaNusantaraX</a>
                     <!-- <a href="#">LOGIN</a> -->
                 </div>
-                <p style="color: #c0c0ff; font-size: 14px;">
+                <p style="color: #c0c0ff; font-size: 14px;" id="pfot">
                     Bergabunglah dengan komunitas pecinta budaya Nusantara.
                 </p>
             </div>
@@ -147,7 +147,7 @@
     const params = new URLSearchParams(window.location.search);
     const adminKey = params.get("admin");
 
-    if (adminKey === "admin123321nusantara") {
+    if (adminKey === "passkey:admin123321nusantara") {
         window.location.href = "../loginadmin.php";
     }
 </script>
@@ -238,6 +238,23 @@
 
     }
 </script>
+ <script>
+    const buttonMobile = document.getElementById("searchMobile");
+    const entryResult = document.getElementById(".entry-search");
+
+    if (buttonMobile && entryResult) {
+
+        buttonMobile.onclick = function () {
+            const display = getComputedStyle(entryResult).display;
+
+            if (display === "none") {
+                entryResult.style.display = "flex";
+            } else {
+                entryResult.style.display = "none";
+            }
+        }
+    }
+</script> 
 <script src="../js/search.js"></script>
 <script src="../js/user.js"></script>
 <script src="../js/priview.js"></script>

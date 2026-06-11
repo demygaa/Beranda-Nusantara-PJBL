@@ -73,7 +73,7 @@
                 <option value="Senjata Alat Perang ">Senjata Alat Perang</option>
                 <option value="Batik">Batik</option>
                 <option value="Lagu Daerah">Lagu Daerah</option>
-                <option value="Pakaian tradisional">Pakaian tradisiona</option>
+                <option value="Pakaian tradisional">Pakaian tradisional</option>
             </select>
         </div>
 

@@ -90,7 +90,10 @@ if (isset($_POST['minta'])) {
     $user_id = $_SESSION['user']['id'];
     $title = $_POST['judul'];
     $kategori = $_POST['kategori'];
-    $daerah = $_POST['daerah'];
+
+    
+
+    $daerah = $_POST['daerah'] ?? "";
     $content = $_POST['content'] ?? "";
 
 

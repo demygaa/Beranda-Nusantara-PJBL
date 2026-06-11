@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="../css/user.css">
 <link rel="stylesheet" href="../css/search.css">
 <link rel="stylesheet" href="../css/profile.css">
-<link rel="stylesheet" href="../css/mobile.css">
+
 
 
 <style>
@@ -241,6 +241,21 @@
         color: white;
         border: none;
         padding: 12px 25px;
+        border-radius: 10px;
+        font-size: 15px;
+        cursor: pointer;
+        width: 200px;
+        height: 41.5px;
+        margin: 0 auto;
+    }
+
+    .hero button#jelajahmobile {
+        background-color: #4244DB;
+
+        justify-content: center;
+        align-items: center;
+        color: white;
+        border: none;
         border-radius: 10px;
         font-size: 15px;
         cursor: pointer;
@@ -482,6 +497,59 @@
         font-size: 16px;
     }
 
+    .video {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        padding: 40px;
+        margin-top: 40px;
+    }
+
+    .bg-video {
+        width: 900px;
+        height: 500px;
+        object-fit: cover;
+    }
+
+
+    .contentp {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: flex-start;
+        
+    }
+    .contentp h1 {
+        font-size: 20px;
+        font-weight: 600px;
+    }
+    
+    .infoaja {
+        display: flex;
+        flex-direction: row;
+        width: 400px;
+        gap: 20px;
+    }
+
+
+
+
+    .line {
+        height: auto;
+        min-height: 150px;
+        border-left: 2px solid black;
+    }
+
+    .playvid {
+        width: 900px;
+        height: 500px;
+        overflow: hidden;
+        border-radius: 12px;
+        border: 0px;
+    }
+
+
+
     /*petabudaya*/
     .petabudaya {
         display: flex;
@@ -490,7 +558,7 @@
         margin-top: 50px;
         margin-left: 42px;
         margin-right: 42px;
-        
+
     }
 
     .petabudaya .peta {
@@ -1319,6 +1387,41 @@
         cursor: pointer;
     }
 
+    #jelajahmobile {
+        display: none;
+    }
+
+    #infografismobile {
+        display: none;
+    }
+
+    #sectionmobile {
+        display: none;
+    }
+
+    .kunjunganmobile {
+        display: none;
+    }
+
+    .rekomendasi-mobile {
+        display: none;
+    }
+
+    .entry-search {
+        display: none;
+    }
+
+    .profile-top-mobile {
+        display: none;
+    }
+
+    .navmob {
+        display: none;
+    }
+    .kontak-mobile {
+        display: none;
+    }
+
     footer {
         background: #31326F;
         color: white;
@@ -1326,8 +1429,6 @@
 
         bottom: 0px;
         z-index: 200;
-
-
     }
 
     .footer-container {
@@ -1445,11 +1546,585 @@
         color: white;
     }
 
-    @media screen and (max-width:600px) {
-        .hamburger {
-            display: flex !important;
-            background: red;
+    @media screen and (max-width: 600px) {
+        header {
+            padding: 20px 25px;
+            background: #31326F;
         }
+
+
+        .h1 {
+            font-size: 8px;
+        }
+
+        #jelajahmobile {
+            display: flex;
+        }
+
+        #jelajahweb {
+            display: none;
+        }
+
+        #infografisweb {
+            display: none;
+        }
+
+        #imageinfo {
+            display: none;
+        }
+
+        .search-icon {
+            display: flex;
+        }
+
+        #sectionmobile {
+            scroll-margin-top: 100px;
+        }
+
+        #sectionmobile {
+            margin: 40px 20px 30px 20px;
+            display: block;
+            padding: 20px;
+
+            background: white;
+            border-radius: 16px;
+        }
+
+        #sectionmobile h2 {
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        #sectionmobile form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        #sectionmobile input,
+        #sectionmobile select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+
+        #sectionmobile button {
+            background: #4244DB;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: column;
+
+            position: fixed;
+            top: 0;
+            right: -280px;
+
+            width: 200px;
+            height: 100vh;
+            border-radius: 8px 0px 0px 8px;
+            background: #31326F;
+
+            padding-top: 70px;
+
+            transition: .3s;
+
+            z-index: 9999;
+        }
+
+        nav.show {
+            right: 0;
+
+        }
+
+        nav a {
+            margin: 0;
+            padding: 18px 25px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, .1);
+        }
+
+        #navdrop {
+            display: none;
+        }
+
+        #searchnav {
+            display: none;
+        }
+
+        #petabudayanav {
+            display: none;
+        }
+
+
+
+        .hamburger {
+            display: flex;
+        }
+
+
+        .user-menu {
+            display: flex;
+        }
+
+        nav.show {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            background: #31326F;
+            border-top: 1px solid;
+        }
+
+        .nav-dropdown {
+            width: 100%;
+            padding: 10px 0;
+            background: rgba(81, 82, 190, 1);
+
+        }
+
+        .dropdown-menu {
+            background: rgb(98, 104, 183);
+            display: none;
+            width: 100%;
+            padding-bottom: 5px;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 5px 0;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        .nav-dropdown.open .dropdown-menu {
+            display: block;
+        }
+
+        .h1 {
+            font-size: 32px;
+        }
+
+        .hero {
+            height: 100%;
+        }
+
+        .hero p {
+            font-size: 13px;
+        }
+
+        .sectionkotak {
+            display: none;
+            margin: 0 auto;
+        }
+
+        .list {
+            padding: 15px;
+        }
+
+        .section-peta {
+            display: none;
+            margin-top: 60px;
+        }
+
+        .content {
+            flex-direction: column;
+            gap: 25px;
+            margin-left: 0px;
+            display: block;
+        }
+
+        .search-box input,
+        .caripeta input {
+            width: 90%;
+        }
+
+        .petabudaya {
+            margin: 32px 9px 32px 9px;
+            display: none;
+        }
+
+        .map-container {
+            display: none;
+        }
+
+        .caripeta input {
+            margin-left: 0px;
+            width: 80%;
+            display: none;
+        }
+
+        .card-container {
+            display: none;
+        }
+
+        /* .kunjungan {
+            display: flex;
+            background-color: #DFDFFF;
+            border-radius: 16px;
+            padding: 20px 5px;
+            margin: 70px auto;
+            margin-left: 32px;
+            margin-right: 32px;
+            margin-bottom: 30px;
+        }
+
+        .kunjungan h2 {
+            display: flex;
+            font-size: 15px;
+        }
+
+        .kunjunganhp {
+            display: block;
+        } */
+
+        .kunjungan {
+            display: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .kunjunganmobile {
+            display: flex;
+            flex-direction: column;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #007bff;
+            height: 70vh;
+            padding: 20px;
+            margin: 0px 20px 10px 20px;
+        }
+
+        .kunjunganmobile h2 {
+            font-size: 15px;
+        }
+
+        .kunjunganmobile h5 {
+            color: #383838;
+            width: 200px;
+            overflow-wrap: break-word;
+        }
+
+        .card-mobile {
+            display: flex;
+            flex-direction: row;
+            background-color: rgba(1, 132, 255, 0.2);
+
+            margin-top: 12px;
+            padding: 12px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px 0 rgba(0, 123, 255, 0.7);
+            outline: none;
+            color: #001f84;
+            gap: 10px;
+            margin-bottom: 7px;
+        }
+
+        .card-mobile img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .card-mobile .icon {
+            background-color: rgb(0, 86, 179);
+            border-radius: 12px;
+        }
+
+        .card-mobile .isi {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        #navbu {
+            display: none;
+        }
+
+        #navfo {
+            display: none;
+        }
+
+        .footer-description {
+            display: none;
+        }
+
+        .footer-top {
+            gap: 10px;
+        }
+
+        .footer-logo {
+            margin-bottom: 0px;
+        }
+
+        #pfot {
+            display: none;
+        }
+
+        .social-icons {
+            margin-bottom: 0px;
+        }
+
+        .kontak {
+            display: none;
+        }
+        .kontak-mobile {
+            display: block;
+        }
+        .lap-mobile {
+            margin-top: 100px;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .lap-mobile h2 {
+            font-size: 20px;
+        }
+
+        .lap-mobile h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 10px;
+        }
+
+        .lap-info {
+            margin-top: 270px;
+        }
+
+        .lap-info table {
+            width: fit-content;
+
+        }
+
+        .lap-info td {
+            height: fit-content;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .lap-info tr {
+            background: transparent;
+        }
+
+        .lap-info th {
+            background: transparent;
+            border: 0;
+        }
+
+        .lap-input form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .lap-input textarea,
+        input {
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .lap-input textarea {
+            resize: none;
+            height: 90px;
+        }
+
+        .lap-input button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 15px;
+            width: 100%;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .user-menu img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .profile-dropdown {
+            width: 220px;
+            height: 100px;
+        }
+
+        .profile-dropdown a {
+            display: flex;
+            align-items: center;
+
+            text-decoration: none;
+            color: black;
+            font-size: 17px;
+            font-weight: 600;
+            height: 50%;
+            border-bottom: 1px solid rgb(51, 51, 51, 0.2);
+        }
+
+        .profile-dropdown a.logout {
+            display: flex;
+            align-items: center;
+
+            text-decoration: none;
+            color: rgb(211, 22, 22);
+            font-size: 17px;
+            font-weight: 600;
+        }
+
+        .detail-title {
+            font-size: 20px;
+            line-height: 1.3;
+            margin-top: 20px;
+        }
+
+        .detail-info {
+            margin-top: 5px;
+            font-size: 13px;
+        }
+
+        .detail-category {
+            display: none;
+        }
+
+        .recommend-container {
+            display: none;
+        }
+
+        .rekomendasi-mobile {
+            display: flex;
+            flex-direction: column;
+            min-height: 450px;
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+
+        .rekomendasi-mobile h2 {
+            font-size: 20px;
+            color: rgb(51, 51, 51);
+            font-weight: 600;
+            margin-bottom: 12px;
+
+        }
+
+        .rekomendasi-wrap {
+            display: flex;
+            flex-direction: row;
+            color: #333;
+            width: 100%;
+            height: 120px;
+            gap: 10px;
+            max-width: 500px;
+            flex-wrap: wrap;
+        }
+
+        .rekomendasi-wrap img {
+            width: 190px;
+            height: fit-content;
+            border-radius: 10px;
+
+        }
+
+        .rekomendasi-wrap h4 {
+            margin-top: 5px;
+            width: 150px;
+            overflow-wrap: break-word;
+            font-weight: 500;
+        }
+
+        .rekomendasi-wrap h3 {
+            margin-top: 10px;
+        }
+
+        .entry-search {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            height: fit-content;
+            margin: 20px;
+            background-color: white;
+            gap: 12px;
+            border-radius: 12px;
+            border: 1px solid rgb(51, 51, 51, 0.5);
+        }
+
+        .entry-search h2 {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .entry-card {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+        }
+
+        .entry-card .info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .entry-card .info p {
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .entry-card h3 {
+            font-size: 17px;
+        }
+
+        .entry-card img {
+            width: 120px;
+            height: fit-content;
+            border-radius: 12px;
+        }
+
+        .profile-layout {
+            margin-top: 90px;
+        }
+
+        .profile-top {
+            display: none;
+        }
+
+        .profile-top-mobile {
+            display: flex;
+        }
+
+        .profile-sidebar {
+            display: none;
+        }
+
+        .profile-content {
+            padding: 20px 20px;
+        }
+
+        .navmob {
+            display: inline-block;
+        }
+
+
+    }
 </style>
 
 <body>

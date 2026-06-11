@@ -23,7 +23,7 @@ $file = "pages/profile/$tab.php";
         if (file_exists($file)) {
             include $file;
         } else {
-            include "pages/profile/editProfile.php";
+            include "pages/profile/editProfile.php"; 
         }
         ?>
 

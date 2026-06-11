@@ -1,27 +1,66 @@
 <?php
-session_start();
-$id =  $_SESSION['user']['id'];
+
+$id = $_SESSION['user']['id'];
 $stmt = $conn->prepare("SELECT * FROM tb_akun WHERE id = ?");
-$stmt->bind_param("i",$id);
+$stmt->bind_param("i", $id);
 $stmt->execute();
 $result = $stmt->get_result();
 $data = $result->fetch_assoc();
 
 ?>
-    <section class="kontak" id="kontak">
-        <div class="contact-box">
-            <h2>Hubungi Kami</h2>
-            <div class="info">
-                <p><b>TELEPON:</b> +62 882-3576-541</p>
-                <p><b>EMAIL</b><b class="spasiemail">:</b> <a href="mailto:dimasprayoga19345@gmail.com">dimasprayoga19345@gmail.com</a></p>
-                <p><b>ALAMAT</b><b class="spasialamat">:</b> Jl. Tirtagangga No.7...</p>
-            </div>
+<section class="kontak" id="kontak">
+    <div class="contact-box">
+        <h2>Hubungi Kami</h2>
+        <div class="info">
+            <p><b>TELEPON:</b> +62 882-3576-541</p>
+            <p><b>EMAIL</b><b class="spasiemail">:</b> <a
+                    href="mailto:dimasprayoga19345@gmail.com">dimasprayoga19345@gmail.com</a></p>
+            <p><b>ALAMAT</b><b class="spasialamat">:</b> Jl. Tirtagangga No.7...</p>
+        </div>
+        <form action="../admin/upload.php" method="post">
+            <textarea placeholder="Tulis pesan Anda..." name="pesan"></textarea>
+            <input type="email" placeholder="Email Anda" name="email" value="<?php echo $data['email'] ?>" readonly>
+            <button type="submit" name="kirimpesan">KIRIM</button>
+        </form>
+    </div>
+</section>
+
+<section class="kontak-mobile">
+    <div class="lap-mobile">
+        <div>
+            <h2>Sampaikan pesan anda kepada kami untuk perbaikan website kami kedepannya</h2>
+        </div>
+        <div class="lap-info">
+            <!-- <p><b>TELEPON:</b> +62 882-3576-541</p>
+            <p><b>EMAIL</b><b class="spasiemail">:</b> <a
+                    href="mailto:dimasprayoga19345@gmail.com">dimasprayoga19345@gmail.com</a></p>
+            <p><b>ALAMAT</b><b class="spasialamat">:</b> Jl. Tirtagangga No.7...</p></form> -->
+            <table>
+                <tr>
+                    <th>TELEPON</th>
+                    <td>:</td>
+                    <td>+62 882-3576-541</td>
+                </tr>
+                <tr>
+                    <th>EMAIL</th>
+                    <td>:</td>
+                    <td><a href="mailto:dimasprayoga19345@gmail.com">dimasprayoga19345@gmail.com</a></td>
+                </tr>
+                <tr>
+                    <th>ALAMAT</th>
+                    <td>:</td>
+                    <td>Jl.Tirtagangga NO.7</td>
+                </tr>
+            </table>
+        </div>
+        <div class="lap-input">
+            <h4>Isi Pesan Anda Disini</h4>
             <form action="../admin/upload.php" method="post">
                 <textarea placeholder="Tulis pesan Anda..." name="pesan"></textarea>
-                <input type="email" placeholder="Email Anda"  name="email" value="<?php echo $data['email']?>" readonly>
+                <input type="email" placeholder="Email Anda" name="email" value="<?php echo $data['email'] ?>" readonly>
                 <button type="submit" name="kirimpesan">KIRIM</button>
             </form>
         </div>
-    </section>
-  
-     
+    </div>
+
+</section>

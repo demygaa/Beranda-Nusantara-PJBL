@@ -1,6 +1,6 @@
-<?php if (isset($_GET['success']) && $_GET['success'] == 1):  
-   ?>
-   
+<?php if (isset($_GET['success']) && $_GET['success'] == 1):
+    ?>
+
 
     <div class="success" id="success">
         Profil berhasil diperbarui,Silahkan login ulang!
@@ -26,22 +26,29 @@ $data = $res->fetch_assoc();
     <input type="file" id="profileUpload" name="profile" accept="image/*" hidden onchange="previewImage(this)">
 
     <div class="profile-top">
-
         <div class="profile-user">
-            <img id="previewImg" src="../asset/profile/<?php echo $data['profile'] ?>">
+            <img class="previewImg" src="../asset/profile/<?php echo $data['profile'] ?>">
 
             <div>
                 <h3><?php echo $data['username'] ?></h3>
-                <p><?php echo $data['bio']?></p>
+                <p><?php echo $data['bio'] ?></p>
             </div>
-
         </div>
 
         <label for="profileUpload" class="change-btn">
             Change Photo
         </label>
+    </div>
 
 
+    <div class="profile-top-mobile">
+        <div class="profile-user-mobile">
+            <img class="previewImg" src="../asset/profile/<?php echo $data['profile'] ?>">
+        </div>
+
+        <label for="profileUpload" class="change-btn-mobile">
+            Change Photo
+        </label>
     </div>
 
     <div class="profile-form">

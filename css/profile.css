@@ -100,7 +100,25 @@
     margin-bottom: 30px;
 }
 
+.profile-top-mobile {
+    background: transparent;
+    border-radius: 20px;
+    padding: 25px;
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+}
+
 .profile-user {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+.profile-user-mobile {
     display: flex;
     align-items: center;
     gap: 18px;
@@ -113,12 +131,28 @@
     object-fit: cover;
 }
 
+.profile-user-mobile img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
 .profile-user h3 {
     font-size: 20px;
     margin-bottom: 2px;
 }
 
+.profile-user-mobile h3 {
+    font-size: 20px;
+    margin-bottom: 2px;
+}
+
 .profile-user p {
+    color: gray;
+    font-size: 12px;
+}
+.profile-user-mobile p {
     color: gray;
     font-size: 12px;
 }
@@ -131,6 +165,17 @@
     border-radius: 10px;
     font-weight: 600;
     cursor: pointer;
+}
+
+.profile-top-mobile button {
+    background: #4244DB;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
 }
 
 /* FORM */
@@ -384,6 +429,10 @@ label[for="profileUpload"] {
 
 label[for="profileUpload"]:hover {
     background: #31326F;
+}
+
+.change-btn-mobile {
+    margin-top: 20px;
 }
 
 .forgot-link {

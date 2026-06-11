@@ -1,15 +1,22 @@
-
 function previewImage(input) {
-
     let file = input.files[0];
 
-    if (file) {
-        let reader = new FileReader();
+    if (!file) return;
 
-        reader.onload = function(e) {
-            document.getElementById("previewImg").src = e.target.result;
-        }
+    let reader = new FileReader();
 
-        reader.readAsDataURL(file);
-    }
+    reader.onload = function (e) {
+
+        const previews =
+            document.querySelectorAll(".previewImg");
+
+        previews.forEach(function (img) {
+            if (img) {
+                img.src = e.target.result;
+            }
+        });
+
+    };
+
+    reader.readAsDataURL(file);
 }

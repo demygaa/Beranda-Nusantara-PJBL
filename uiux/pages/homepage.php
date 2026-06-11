@@ -3,19 +3,42 @@
     <div class="hero-content">
         <h1 class="h1">MARI JELAJAHI<br>NUSANTARA KITA</h1>
         <p>KERAGAMAN BUDAYA INDONESIA KU</p>
-        <a href="#peta"><button>Jelajahi Sekarang</button></a>
+        <a href="#peta"><button id="jelajahweb">Jelajahi Sekarang</button></a>
+        <a href="#sectionmobile"><button id="jelajahmobile">Jelajahi Sekarang</button></a>
     </div>
 </section>
+
+
+<!-- <section class="video">
+    <div class="playvid">
+        <video autoplay muted loop playsinline class="bg-video">
+        <source src="../asset/video/petapokonya.mp4" type="video/mp4">
+    </video>
+    </div>
+    
+
+    <div class="contentp">
+        <h1>Pelajari Budaya Kita dengan lebih menyenangkan</h1>
+        <div class="infoaja">
+            <div class="line"></div>
+             <p>Indonesia merupakan negara kepulauan yang memiliki keberagaman budaya yang sangat kaya. Setiap daerah memiliki ciri khas tersendiri, mulai dari bahasa, adat istiadat, rumah adat, pakaian tradisional, tarian, musik, hingga kuliner daerah. Keanekaragaman budaya tersebut menjadi identitas bangsa sekaligus warisan yang harus dijaga dan dilestarikan. Melalui keberagaman budaya yang dimiliki, Indonesia dikenal sebagai salah satu negara dengan kekayaan budaya terbesar di dunia.</p> 
+        </div>
+        
+    </div> 
+</section>  -->
+
+
 
 <!-- section kotak -->
 <section class="section-peta" id="sectionkotak">
     <h2>Budaya Beranda Nusantara</h2>
 
+
     <div class="content" id="sectioncontent">
-        <img src="../asset/icon/sectionkotak.png" alt="Budaya Nusantara" class="sectionkotak">
+        <img src="../asset/icon/sectionkotak.png" alt="Budaya Nusantara" class="sectionkotak" id="imageinfo">
 
         <div class="list">
-            <h3><span>Budaya</span> yang dicakup pada Peta Budaya Nusantara</h3>
+            <h3 id="infografisweb"><span>Budaya</span> yang dicakup pada Peta Budaya Nusantara</h3>
             <ul>
                 <li>
                     <div class="iconblue">
@@ -64,7 +87,119 @@
     </div>
 </section>
 
-<!--sectionpeta-->
+<section id="sectionmobile" class="mobile">
+
+    <?php
+
+    $queryKonten = null;
+
+    if (isset($_GET['search'])) {
+
+        $search = mysqli_real_escape_string($conn, $_GET['search']);
+        $kategori = mysqli_real_escape_string($conn, $_GET['kategori'] ?? '');
+
+        $sql = "SELECT * FROM tb_konten WHERE judul LIKE '%$search%'";
+
+        if ($kategori != '') {
+            $sql .= " AND kategori = '$kategori'";
+        }
+
+        $queryKonten = mysqli_query($conn, $sql);
+    }
+
+    ?>
+
+
+
+
+
+    <h2>Cari Budaya Nusantara Disini</h2>
+
+    <form action="index.php" method="GET">
+
+        <input type="hidden" name="page" value="index">
+
+        <input type="text" name="search" placeholder="Cari nama budaya">
+
+        <select name="kategori">
+
+            <option value="">Semua Kategori</option>
+            <option value="tarian">Tarian</option>
+            <option value="pakaian tradisional">Pakaian Tradisional</option>
+            <option value="senjata alat perang">Senjata Alat Perang</option>
+            <option value="seni pertunjukan drama">Seni Pertunjukan Drama</option>
+            <option value="lagu">Lagu Daerah</option>
+            <option value="alat musik">Alat Musik</option>
+            <option value="batik">Batik</option>
+
+        </select>
+
+        <button type="submit" id="searchMobile">
+            Cari
+        </button>
+
+    </form>
+
+</section>
+<section class="entry-search">
+
+    <div>
+        <h2>Data yang ditemukan</h2>
+    </div>
+
+    <?php if ($queryKonten && mysqli_num_rows($queryKonten) > 0) { ?>
+
+        <?php while ($dataKonten = mysqli_fetch_assoc($queryKonten)) { ?>
+            <a href="index.php?page=detail&id=<?php echo $dataKonten['id']; ?>">
+                <div class="entry-card">
+
+                    <img src="../asset/konten/<?php echo $dataKonten['gambar'] ?>" alt="">
+
+                    <div class="info">
+                        <h3><?= htmlspecialchars($dataKonten['judul']) ?></h3>
+                        <p>
+                            <?= substr(strip_tags($dataKonten['isi']), 0, 40) ?>...
+                        </p>
+                    </div>
+
+                </div>
+            </a>
+        <?php } ?>
+
+    <?php } elseif (isset($_GET['search'])) { ?>
+
+        <p>Tidak ada data yang ditemukan.</p>
+
+    <?php } ?>
+
+</section>
+
+
+
+<section class="kunjunganmobile">
+    <h2>Artikel Populer</h2>
+    <?php
+
+    $stmt = $conn->prepare("SELECT * FROM tb_konten ORDER BY views DESC LIMIT 4");
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+
+    ?>
+    <?php while ($data = $result->fetch_assoc()) { ?>
+        <a href="index.php?page=detail&id=<?php echo $data['id']; ?>" class="detail-link">
+            <div class="card-mobile">
+                <div class="icon">
+                    <img src="../asset/konten/<?php echo $data['gambar'] ?>">
+                </div>
+                <div class="isi">
+                    <h2><?php echo $data['judul'] ?></h2>
+                    <h5><?= substr($data['isi'], 0, 50) . "..." ?></h5>
+                </div>
+            </div>
+        </a>
+    <?php } ?>
+</section>
 <section class="petabudaya" id="peta">
     <h2>Peta Budaya Interaktif</h2>
 

@@ -14,7 +14,7 @@
 
     <nav>
         <a href="index.php?page=homepage">BERANDA</a>
-        <div class="nav-dropdown">
+        <div class="nav-dropdown" id="navdrop">
             <a class="dropdown-btn">KEBUDAYAAN</a>
             <div class="dropdown-menu">
                 <a href="index.php?page=listcard&kategori=lagu">Lagu</a>
@@ -29,16 +29,21 @@
 
 
         <a href="index.php?page=kontak">KONTAK</a>
-        <a href="index.php?page=dashboard#peta">PETA BUDAYA</a>
+        <a href="index.php?page=dashboard#peta" id="petabudayanav">PETA BUDAYA</a>
         <?php if (!isset($_SESSION['user'])): ?>
-            <a href="../loginuser.php">LOGIN</a>
+            <a href="../loginuser.php">MASUK</a>
+        <?php endif; ?>
+        <?php if (isset($_SESSION['user'])): ?>
+            <a href="index.php?page=profile&tab=artikel" class="navmob">ARTIKEL</a>
+            <a href="index.php?page=profile&tab=notifikasi" class="navmob">NOTIFIKASI</a>
+            <a href="index.php?page=profile&tab=keamanan" class="navmob">KEAMANAN</a>
         <?php endif; ?>
 
 
     </nav>
 
     <div class="search-icon">
-        <div class="search-nav">
+        <div class="search-nav" id="searchnav">
             <form action="upload.php" method="GET">
                 <div>
                     <input type="text" name="search" id="search" placeholder="Cari budaya atau daerah"
@@ -46,7 +51,7 @@
                     <div id="suggestions" class="suggestions"></div>
                 </div>
 
-                <button type="submit">Search</button>
+                <button type="submit">cari</button>
             </form>
         </div>
 
@@ -61,10 +66,10 @@
                 <div class="profile-dropdown" id="profileDropdown">
                     <a href="index.php?page=profile">
                         <img src="../asset/profile/<?= $_SESSION['user']['profile']; ?>">
-                        Profile
+                        Profil
                     </a>
                     <a href="logout.php" class="logout">
-                        <img src="../asset/icon/logout.png">Logout
+                        <img src="../asset/icon/logout.png">Keluar
                     </a>
                 </div>
 

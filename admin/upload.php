@@ -14,37 +14,70 @@ if (isset($_POST['simpan'])) {
 
 
 if (isset($_POST['upload'])) {
+
     $id = $_POST['id'];
-    $title = $_POST['title'] ?? "";
-    $kategori = $_POST['kategori'] ?? "";
-    $daerah = $_POST['daerah'] ?? "";
-    $content = $_POST['content'] ?? "";
+    $title = trim($_POST['title']);
+    $kategori = trim($_POST['kategori']);
+    $daerah = trim($_POST['daerah']);
+    $content = trim($_POST['content']);
 
-
-    $image = $_FILES['image']['name'] ?? "";
-    $image_baru = time() . '_' . basename($image);
-    $tmp = $_FILES['image']['tmp_name'] ?? "";
-    $target = "../asset/konten/" . $image_baru;
-
-    $ext = strtolower(pathinfo($image, PATHINFO_EXTENSION));
-    $allowed = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
-
-    if (!in_array($ext, $allowed)) {
-        die("format gambar tidak valid");
+    if ($daerah == "") {
+        die("Pilih provinsi terlebih dahulu");
     }
 
+    if (!isset($_FILES['image']) || $_FILES['image']['error'] !== 0) {
+        die("Upload gambar gagal");
+    }
+
+    $image = $_FILES['image']['name'];
+    $tmp = $_FILES['image']['tmp_name'];
+
+    $ext = strtolower(pathinfo($image, PATHINFO_EXTENSION));
+
+    $allowed = ['jpg','jpeg','png','gif','webp'];
+
+    if (!in_array($ext, $allowed)) {
+        die("Format gambar tidak valid");
+    }
+
+    $image_baru =
+        uniqid() . "." . $ext;
+
+    $target =
+        "../asset/konten/" . $image_baru;
 
     if (move_uploaded_file($tmp, $target)) {
-        $sql = "INSERT INTO tb_konten (user_id,judul, kategori, daerah, isi, gambar)
-            VALUES ($id,'$title', '$kategori','$daerah', '$content','$image_baru')";
-        if ($conn->query($sql) === TRUE) {
-            header("Location: admin.php?page=kelolaartikel&success=1");
+
+        $stmt = $conn->prepare("INSERT INTO tb_konten (user_id, judul, kategori, daerah, isi, gambar) VALUES (?, ?, ?, ?, ?, ?)");
+
+        $stmt->bind_param(
+            "isssss",
+            $id,
+            $title,
+            $kategori,
+            $daerah,
+            $content,
+            $image_baru
+        );
+
+        if ($stmt->execute()) {
+
+            header(
+                "Location: admin.php?page=kelolaartikel&success=1"
+            );
+
+            exit();
 
         } else {
-            echo "Error: " . $conn->error;
+
+            echo $stmt->error;
+
         }
+
     } else {
-        echo "Gagal upload gambar!";
+
+        echo "Gagal upload gambar";
+
     }
 }
 
@@ -177,7 +210,7 @@ if (isset($_POST['update'])) {
     $title = $_POST['title'];
     $content = $_POST['content'] ?? "";
     $kategori = $_POST['kategori'];
-    $daerah = $_POST['provinsi'];
+    $daerah = $_POST['daerah'];
 
     $image = $_FILES['image']['name'] ?? "";
     $image_baru = time() . '_' . basename($image);

@@ -5,7 +5,6 @@ function toggleProfileMenu() {
     document
         .getElementById("profileDropdown")
         .classList.toggle("show-profile");
-
 }
 
 window.addEventListener("click", function(e) {
